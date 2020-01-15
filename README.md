@@ -3,7 +3,6 @@
 ## Want to use this project?
 
 1. Clone Git project
-git clone https://github.com/haraldberg/flaskvue.git
 
 2. Run flask-vue project
 - Build an image from Dockerfile
