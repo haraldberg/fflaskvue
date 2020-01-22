@@ -103,7 +103,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import Alert from './Alert.vue';
 
 export default {
@@ -133,7 +132,7 @@ export default {
     getOrders() {
       this.isLoading = true
       const path = `/orders/${this.userId}`;
-      axios.get(path)
+      this.axios.get(path)
         .then((res) => {
           this.orders = res.data.orders;
           if (this.message !== '') this.showMessage = true;
@@ -146,7 +145,7 @@ export default {
     },
     addOrder(payload) {
       const path = `/orders/${this.userId}`;
-      axios.post(path, payload)
+      this.axios.post(path, payload)
         .then(() => {
           this.getOrders();
           this.message = 'Order added!';
@@ -196,7 +195,7 @@ export default {
     },
     updateOrder(payload, orderID) {
       const path = `/orders/${orderID}`;
-      axios.put(path, payload)
+      this.axios.put(path, payload)
         .then(() => {
           this.getOrders();
           this.message = 'Order updated!';
@@ -216,7 +215,7 @@ export default {
     },
     removeOrder(orderID) {
       const path = `/orders/${orderID}`;
-      axios.delete(path)
+      this.axios.delete(path)
         .then(() => {
           this.getOrders();
           this.message = 'Order removed!';

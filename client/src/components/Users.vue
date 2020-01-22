@@ -163,7 +163,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+
 import Alert from './Alert.vue';
 
 export default {
@@ -194,8 +194,7 @@ export default {
   methods: {
     getUsers() {
       this.isLoading = true
-      const path = '/users';
-      axios.get(path)
+      this.axios.get('/users')
         .then((res) => {
           this.users = res.data.users;
           if (this.message !== '') this.showMessage = true;
@@ -207,8 +206,7 @@ export default {
         });
     },
     addUser(payload) {
-      const path = '/users';
-      axios.post(path, payload)
+      this.axios.post('/users', payload)
         .then(() => {
           this.getUsers();
           this.message = 'User added!';
@@ -272,8 +270,7 @@ export default {
       this.updateUser(payload, this.editForm.id);
     },
     updateUser(payload, userID) {
-      const path = `/users/${userID}`;
-      axios.put(path, payload)
+      this.axios.put(`/users/${userID}`, payload)
         .then(() => {
           this.getUsers();
           this.message = 'User updated!';
@@ -292,8 +289,7 @@ export default {
       this.getUsers();
     },
     removeUser(userID) {
-      const path = `/users/${userID}`;
-      axios.delete(path)
+      this.axios.delete(`/users/${userID}`)
         .then(() => {
           this.getUsers();
           this.message = 'User removed!';

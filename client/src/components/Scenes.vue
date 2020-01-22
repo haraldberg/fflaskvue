@@ -144,7 +144,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import Alert from './Alert.vue';
 
 export default {
@@ -179,7 +178,7 @@ export default {
     getScenes() {
       this.isLoading = true
       const path = `/scenes/${this.orderId}`;
-      axios.get(path)
+      this.axios.get(path)
         .then((res) => {
           this.scenes = res.data.scenes;
           if (this.message !== '') this.showMessage = true;
@@ -192,7 +191,7 @@ export default {
     },
     addScene(payload) {
       const path = `/scenes/${this.orderId}`;
-      axios.post(path, payload)
+      this.axios.post(path, payload)
         .then(() => {
           this.getScenes();
           this.message = 'Scene added!';
@@ -250,7 +249,7 @@ export default {
     },
     updateScene(payload, sceneID) {
       const path = `/scenes/${sceneID}`;
-      axios.put(path, payload)
+      this.axios.put(path, payload)
         .then(() => {
           this.getScenes();
           this.message = 'Scene updated!';
@@ -270,7 +269,7 @@ export default {
     },
     removeScene(sceneID) {
       const path = `/scenes/${sceneID}`;
-      axios.delete(path)
+      this.axios.delete(path)
         .then(() => {
           this.getScenes();
           this.message = 'Scene removed!';

@@ -1,4 +1,4 @@
-# Developing a Single Page App with Flask and Vue.js - CRUD
+# Developing a Single Page App with Flask and Vue.js
 
 ## Want to use this project?
 
@@ -6,11 +6,7 @@
 
 2. Run flask-vue project
 - Build an image from Dockerfile
-./app-build.sh
-
-- Run Docker container
-./app-run.sh
+docker-compose up -d
 Navigate to [http://localhost:8007](http://localhost:8007)
-
 - Stop Docker container
 ./app-stop.sh
