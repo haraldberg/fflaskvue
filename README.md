@@ -7,6 +7,6 @@
 2. Run flask-vue project
 - Build an image from Dockerfile
 docker-compose up -d
-Navigate to [http://localhost:8007](http://localhost:8007)
+Navigate to [http://localhost:8080](http://localhost:8080)
 - Stop Docker container
 ./app-stop.sh
